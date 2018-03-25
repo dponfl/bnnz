@@ -35,4 +35,8 @@ module.exports = {
   //   level: "silent"
   // }
 
+  TOKEN: process.env.TELEGRAM_TOKEN || 'not defined',
+
+
+
 };
