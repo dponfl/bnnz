@@ -9,8 +9,11 @@ module.exports = {
 
     console.log('Telegram Token: ' + sails.config.TOKEN);
 
-    return {
-      some: 'text',
+    let result = {
+      some: 'some text',
     };
+
+    return res.ok({result: 'ok', data: result});
+
   },
 };
