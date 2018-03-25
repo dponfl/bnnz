@@ -50,12 +50,15 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "deploy": "./deploy.sh",
+    "build": "./build.sh",
+    "postinstall": "chmod +x ./deploy.sh ./build.sh && npm run deploy && npm run build"
   },
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/bonanza.git"
+    "url": "git://github.com/dponfl/bnnz.git"
   },
   "author": "Dmitry Ponomarev dponfl@gmail.com",
   "license": ""
