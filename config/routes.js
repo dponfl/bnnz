@@ -48,7 +48,7 @@ module.exports.routes = {
 
   'GET /config': 'ConfigController.loadConfig',
 
-  'GET /test': 'TelegramBotController.getResponse',
+  'GET /bot': 'TelegramBotController.getResponse',
 
 
 };

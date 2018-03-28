@@ -22,7 +22,8 @@ module.exports = {
       console.log('Bot got message:');
       console.dir(msg);
 
-      result['msg'] = msg;
+      bot.sendMessage(msg.chat.id, 'Здравствуй, ' + msg.from.first_name + ' '
+        + msg.from.last_name);
     });
 
 
