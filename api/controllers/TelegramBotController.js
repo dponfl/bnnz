@@ -2,21 +2,26 @@
 
 const TelegramBot = require('node-telegram-bot-api');
 
+const bot = new TelegramBot(sails.config.TOKEN, {
+  polling: true
+});
+
 module.exports = {
   getResponse: function (req, res) {
 
-    var result = {};
+    var result = {test: 'test'};
 
     console.log('<== TelegramBotController:getResponse ==>');
 
     // console.log('Telegram Token: ' + sails.config.TOKEN);
 
-    const bot = new TelegramBot(sails.config.TOKEN, {
-      polling: true
-    });
+
 
     bot.on('message', (msg) => {
-      console.log('Bot got message: ' + msg);
+
+      console.log('Bot got message:');
+      console.dir(msg);
+
       result['msg'] = msg;
     });
 
