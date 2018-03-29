@@ -1,11 +1,6 @@
 (function () {
   'use strict';
 
-  console.log('<<<<< Log from bot.js >>>>>');
-  console.log('Token: ' + sails.config.TOKEN);
-  console.log('<<<<<>>>>>');
-
-
   const TelegramBot = require('node-telegram-bot-api');
 
   const bot = new TelegramBot(sails.config.TOKEN, {
