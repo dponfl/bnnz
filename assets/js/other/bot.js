@@ -12,7 +12,13 @@
     console.log('Bot got message:');
     console.dir(msg);
 
-    bot.sendMessage(msg.chat.id, 'Здравствуй, ' + msg.from.first_name);
+    bot.sendMessage(msg.chat.id, 'Здравствуй, ' + msg.from.first_name)
+      .then(() => {
+        console.log('Message has been sent...');
+      })
+      .catch((err) => {
+        console.error(err);
+      })
   });
 
 
