@@ -21,6 +21,20 @@
       })
   });
 
+  bot.onText(/\/help (.+)/, (msg, [source, match]) => {
+
+    console.log('Bot got match:');
+    console.dir(match);
+
+    bot.sendMessage(msg.chat.id, 'Получена команда help')
+      .then(() => {
+        console.log('Message has been sent...');
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+  });
+
 
 
 })();
