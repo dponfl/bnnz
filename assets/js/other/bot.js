@@ -7,12 +7,12 @@
     polling: true
   });
 
-  bot.on('message', (msg) => {
+  bot.onText(/\/start/, (msg) => {
 
     console.log('Bot got message:');
     console.dir(msg);
 
-    bot.sendMessage(msg.chat.id, 'Здравствуй, ' + msg.from.first_name)
+    bot.sendMessage(msg.chat.id, 'Получена команда start')
       .then(() => {
         console.log('Message has been sent...');
       })
