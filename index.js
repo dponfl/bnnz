@@ -1,6 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const debug = require('./helpers');
-const TOKEN = '416078759:AAEwNO3vC-mJvlheRvbrRxgG4hYZTaVVQ10';
+const TOKEN = '**********';
 
 console.log('Bot has been started ....');
 
@@ -19,6 +19,7 @@ bot.on('message', msg => {
   const markdown = `
     *Hello, ${msg.from.first_name}* 
     _Italic text_
+    _One more italic text here_
   `
 
 
