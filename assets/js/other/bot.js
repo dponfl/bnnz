@@ -9,10 +9,17 @@
 
   bot.on('message', (msg) => {
 
+    const html = `
+    <strong>Hello, ${msg.from.first_name}</strong>
+    <p>Some text here...</p>
+`;
+
     console.log('Bot got message:');
     console.dir(msg);
 
-    bot.sendMessage(msg.chat.id, 'Здравствуй, ' + msg.from.first_name)
+    bot.sendMessage(msg.chat.id, html, {
+      parse_mode: 'HTML'
+    })
       .then(() => {
         console.log('Message has been sent...');
       })
