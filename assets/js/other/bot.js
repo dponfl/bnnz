@@ -13,6 +13,7 @@
     <b>Hello, ${msg.from.first_name}</b>
     <i>Some text here...</i>
     <a href="www.instagram.com">Instagram</a>
+    <a href="https://www.instagram.com/p/Bf3ak5TFLLC/">Have a look at this post</a>
 `;
 
     console.log('Bot got message:');
