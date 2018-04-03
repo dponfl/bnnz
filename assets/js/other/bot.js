@@ -10,8 +10,9 @@
   bot.on('message', (msg) => {
 
     const html = `
-    <strong>Hello, ${msg.from.first_name}</strong>
-    <p>Some text here...</p>
+    <b>Hello, ${msg.from.first_name}</b>
+    <i>Some text here...</i>
+    <a href="www.instagram.com">Instagram</a>
 `;
 
     console.log('Bot got message:');
