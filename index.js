@@ -1,8 +1,8 @@
-const TelegramBot = require('node-telegram-bot-api');
-const debug = require('./helpers');
-const TOKEN = '**********';
+const TelegramBot = require('node-telegram-bot-api')
+const debug = require('./helpers')
+const TOKEN = ''
 
-console.log('Bot has been started ....');
+console.log('Bot has been started ....')
 
 const bot = new TelegramBot(TOKEN, {
   polling: {
@@ -16,15 +16,41 @@ const bot = new TelegramBot(TOKEN, {
 
 bot.on('message', msg => {
 
-  const markdown = `
-    *Hello, ${msg.from.first_name}* 
-    _Italic text_
-    _One more italic text here_
-  `
+  const chatId = msg.chat.id
 
+  if (msg.text === 'Закрыть') {
 
-  bot.sendMessage(msg.chat.id, markdown, {
-    parse_mode: 'Markdown'
-  })
+    bot.sendMessage(chatId, 'Закрываю клавиатуру', {
+      reply_markup: {
+        remove_keyboard: true
+      }
+    })
+
+  } else if (msg.text === 'Send post') {
+
+    bot.sendMessage(chatId, 'Place link to your Inst post', {
+      reply_markup: {
+        force_reply: true
+      }
+    })
+
+  } else {
+    bot.sendMessage(chatId, 'Клавиатура', {
+      reply_markup: {
+        keyboard: [
+          [{
+            text: 'Отправить местоположение',
+            request_location: true
+          }],
+          ['Send post', 'Закрыть'],
+          [{
+            text: 'Отправить контакт',
+            request_contact: true
+          }]
+        ],
+        one_time_keyboard: true
+      }
+    })
+  }
 
 })
