@@ -18,39 +18,33 @@ bot.on('message', msg => {
 
   const chatId = msg.chat.id
 
-  if (msg.text === 'Закрыть') {
-
-    bot.sendMessage(chatId, 'Закрываю клавиатуру', {
-      reply_markup: {
-        remove_keyboard: true
-      }
-    })
-
-  } else if (msg.text === 'Send post') {
-
-    bot.sendMessage(chatId, 'Place link to your Inst post', {
-      reply_markup: {
-        force_reply: true
-      }
-    })
-
-  } else {
-    bot.sendMessage(chatId, 'Клавиатура', {
-      reply_markup: {
-        keyboard: [
-          [{
-            text: 'Отправить местоположение',
-            request_location: true
-          }],
-          ['Send post', 'Закрыть'],
-          [{
-            text: 'Отправить контакт',
-            request_contact: true
-          }]
+  bot.sendMessage(chatId, 'Inline keyboard', {
+    reply_markup: {
+      inline_keyboard: [
+        [
+          {
+            text: 'Google',
+            url: 'https://google.com'
+          }
         ],
-        one_time_keyboard: true
-      }
-    })
-  }
+        [
+          {
+            text: 'Reply',
+            callback_data: 'reply'
+          },
+          {
+            text: 'Forward',
+            callback_data: 'forward'
+          }
+        ]
+      ]
+    }
+  })
 
+})
+
+bot.on('callback_query', query => {
+  // bot.sendMessage(query.message.chat.id, debug(query))
+
+  bot.answerCallbackQuery(query.id, `${query.data}`)
 })
